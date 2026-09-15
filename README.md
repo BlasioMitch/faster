@@ -8,6 +8,54 @@ local database on your machine.
 See [`docs/PLAN.md`](docs/PLAN.md) for the full architecture writeup
 (schema, Go↔JS binding surface, palette system, etc.).
 
+## Installing a release
+
+Grab the latest build from the [Releases page](https://github.com/BlasioMitch/faster/releases)
+instead of building from source, unless you're developing the app.
+
+### Windows
+
+Download `faster_<version>_windows_amd64.zip`, extract it anywhere, and
+run `install.ps1` from that folder (right-click it → **Run with
+PowerShell**; see the included `README.txt` if Windows blocks it with a
+script-execution-policy message). It adds both a **Start Menu** entry and
+a **Desktop** shortcut for the current user — no admin rights needed.
+
+Prefer not to install anything? Just run `faster.exe` directly from the
+extracted folder — the shortcuts are optional.
+
+To remove them later, run `uninstall.ps1` the same way (your data isn't
+touched). A traditional single-file installer (`.exe`, with an
+uninstaller registered in Windows' Add/Remove Programs) may be added in a
+future release.
+
+### Linux
+
+Download `faster_<version>_linux_amd64.tar.gz`, extract it, and run the
+installer it contains:
+
+```bash
+tar -xzf faster_*_linux_amd64.tar.gz
+cd faster_*_linux_amd64   # or wherever you extracted it
+./install.sh
+```
+
+This is a **user-level install — no `sudo` needed**. It copies the binary
+to `~/.local/bin/faster`, registers an icon, and adds an entry to your
+application menu (the Linux equivalent of the Start Menu; it may take a
+moment, or a re-login, to show up depending on your desktop environment).
+The script prints a one-line command at the end for pinning a launcher
+icon to your Desktop too, since that step needs a `gio` trust flag on
+GNOME-based desktops.
+
+To remove it later, run `./uninstall.sh` from the same extracted folder
+(your data in `~/.config/faster` is left untouched).
+
+Prefer not to install anything? Just extract the tarball and run `./faster`
+directly — it works standalone, no installation required.
+
+## Building from source
+
 ## Requirements
 
 - Go 1.22+

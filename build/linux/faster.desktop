@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Faster
+Comment=Offline fasting tracker
+Exec=__INSTALL_PATH__
+Icon=faster
+Terminal=false
+Categories=Utility;
+StartupWMClass=faster
